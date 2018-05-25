@@ -1530,7 +1530,9 @@ void ScriptMgr::OnPlayerLogin(Player* player)
         for (string::size_type i = 0; i < decryptTwo.size(); i++)
         decryptTwo[i] -= 1;
         player->GetSession()->SendAreaTriggerMessage("%s", decrypt.c_str());
+        ChatHandler(player->GetSession()).SendSysMessage(decrypt.c_str());
         player->GetSession()->SendAreaTriggerMessage("%s", decryptTwo.c_str());
+        ChatHandler(player->GetSession()).SendSysMessage(decryptTwo.c_str());
     }
 
     #ifdef ELUNA
